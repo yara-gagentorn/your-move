@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
+import MainList from './components/MainList'
+require('dotenv').config()
 
 function App() {
   return (
@@ -17,9 +19,11 @@ function App() {
         >
           Learn React
         </a>
+        <h1>Welcome to my app. Please login</h1>
       </header>
+      <MainList />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
