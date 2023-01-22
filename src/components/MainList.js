@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
-class MainList extends Component {
-  render() {
-    return (
-      <div>
-        <h1>My List</h1>
-      </div>
-    )
-  }
+function MainList() {
+  return ''
 }
 
 export default MainList

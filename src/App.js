@@ -1,13 +1,15 @@
 import logo from './logo.svg'
 import './App.css'
 import MainList from './components/MainList'
-require('dotenv').config()
+import AddMove from './components/AddMove'
+import React, { Component } from 'react'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <AddMove />
+        {/* <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -19,9 +21,8 @@ function App() {
         >
           Learn React
         </a>
-        <h1>Welcome to my app. Please login</h1>
+        <h1>Welcome to my app. Please login</h1> */}
       </header>
-      <MainList />
     </div>
   )
 }
