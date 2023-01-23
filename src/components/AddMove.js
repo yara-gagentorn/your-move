@@ -5,20 +5,14 @@ import { ref, set } from 'firebase/database'
 
 function AddMove() {
   const [move, setMove] = useState('')
+  //const movesCollection = db.collection("moves")
 
   const addMove = async (e) => {
     e.preventDefault()
     try {
-      console.log('trying...', db)
-
-      set(ref(db, 'moves'), {
-        move: move,
+      set(ref(db, 'moves/' + move), {
+        moveName: move,
       })
-
-      // const docRef = await addDoc(collection(db, 'moves'), {
-      //   move: move,
-      // })
-      // console.log('Document written with ID: ', docRef.id)
     } catch (e) {
       console.error('Error adding document: ', e)
     }
