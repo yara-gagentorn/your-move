@@ -1,10 +1,27 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '../utils/firebase'
+import { ref, set } from 'firebase/database'
 
 function AddMove() {
   const [move, setMove] = useState('')
 
-  const addMove = (e) => {
+  const addMove = async (e) => {
     e.preventDefault()
+    try {
+      console.log('trying...', db)
+
+      set(ref(db, 'moves'), {
+        move: move,
+      })
+
+      // const docRef = await addDoc(collection(db, 'moves'), {
+      //   move: move,
+      // })
+      // console.log('Document written with ID: ', docRef.id)
+    } catch (e) {
+      console.error('Error adding document: ', e)
+    }
   }
 
   return (
