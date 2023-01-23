@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { db } from '../utils/firebase'
-import { ref, onValue } from 'firebase/database'
+import { ref, onValue, remove } from 'firebase/database'
 
 function MainList() {
   const [moves, setMoves] = useState([])
@@ -17,12 +17,19 @@ function MainList() {
       }
     })
   }, [])
+
+  function handleDelete(move) {
+    remove(ref(db, `moves/${move.moveName}`))
+  }
+
   return (
     <>
       <h1>List here:</h1>
       {moves.map((move) => (
         <>
-          <h1>{move.moveName}</h1>
+          <span>{move.moveName}</span>
+          <button onClick={() => handleDelete(move)}>delete</button>
+          <button>update</button>
         </>
       ))}
     </>
