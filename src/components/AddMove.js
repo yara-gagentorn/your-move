@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../utils/firebase'
 import { ref, set } from 'firebase/database'
 
@@ -7,15 +6,10 @@ function AddMove() {
   const [move, setMove] = useState('')
   //const movesCollection = db.collection("moves")
 
-  const addMove = async (e) => {
-    e.preventDefault()
-    try {
-      set(ref(db, 'moves/' + move), {
-        moveName: move,
-      })
-    } catch (e) {
-      console.error('Error adding document: ', e)
-    }
+  const addMove = (e) => {
+    set(ref(db, 'moves/' + move), {
+      moveName: move,
+    })
   }
 
   return (

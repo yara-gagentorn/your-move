@@ -4,12 +4,12 @@ import { ref, onValue, remove } from 'firebase/database'
 
 function MainList() {
   const [moves, setMoves] = useState([])
+  const [isEdit, setIsEdit] = useState(false)
 
   useEffect(() => {
     onValue(ref(db, 'moves/'), (snapshot) => {
       setMoves([])
       const data = snapshot.val()
-      console.log('snapshot', snapshot)
       if (data !== null) {
         Object.values(data).map((move) =>
           setMoves((oldArray) => [...oldArray, move])
@@ -29,7 +29,7 @@ function MainList() {
         <>
           <span>{move.moveName}</span>
           <button onClick={() => handleDelete(move)}>delete</button>
-          <button>update</button>
+          <button onClick={() => handleUpdate(move)}>update</button>
         </>
       ))}
     </>
