@@ -10,6 +10,7 @@ function AddMove() {
     set(ref(db, 'moves/' + move), {
       moveName: move,
     })
+    setMove('')
   }
 
   return (
@@ -19,6 +20,7 @@ function AddMove() {
         <input
           type="text"
           placeholder="Add a new move"
+          value={move}
           onChange={(e) => setMove(e.target.value)}
         />
       </div>

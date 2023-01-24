@@ -22,6 +22,9 @@ function MainList() {
     remove(ref(db, `moves/${move.moveName}`))
   }
 
+  // update
+  function handleUpdate(move) {}
+
   return (
     <>
       <h1>List here:</h1>

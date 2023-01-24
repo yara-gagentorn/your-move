@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+
 //import { getAnalytics } from 'firebase/analytics'
 
 //--- from the tutorial https://medium.com/innovance-company-blog/how-to-connect-firebase-realtime-database-to-a-react-app-f7dcb983150a
@@ -28,3 +30,4 @@ if (app.length === 0) {
 
 //--- from the tutorial https://medium.com/innovance-company-blog/how-to-connect-firebase-realtime-database-to-a-react-app-f7dcb983150a
 export const db = getDatabase(app)
+export const auth = getAuth(app)
