@@ -5,6 +5,7 @@ import { auth } from '../utils/firebase'
 function Signup() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
 
   function handleSignup(email, password) {
     createUserWithEmailAndPassword(auth, email, password)
@@ -12,12 +13,10 @@ function Signup() {
         // Signed in
         const user = userCredential.user
         console.log(user)
+        setMessage('')
       })
       .catch((error) => {
-        console.log('FAIL!!!')
-        const errorCode = error.code
-        const errorMessage = error.message
-        console.log(errorMessage)
+        setMessage(error.code)
       })
   }
 
@@ -31,6 +30,7 @@ function Signup() {
       <button name="register" onClick={() => handleSignup(email, password)}>
         Signup
       </button>
+      {message && <div>{message}</div>}
     </>
   )
 }
