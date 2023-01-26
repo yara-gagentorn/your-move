@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
+import * as firebaseui from 'firebaseui'
 
 //import { getAnalytics } from 'firebase/analytics'
 
@@ -20,11 +21,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-if (app.length === 0) {
-  console.log('not inicialised')
-} else {
-  console.log('initialised!', app)
-}
 
 //const analytics = getAnalytics(app)
 
