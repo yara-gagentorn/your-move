@@ -9,7 +9,6 @@ function Login() {
   const [isLogged, setIslogged] = useState(false)
   const currentUser = auth.currentUser
 
-  console.log(currentUser)
   useEffect(() => {
     currentUser ? setIslogged(true) : setIslogged(false)
   }, [currentUser])
