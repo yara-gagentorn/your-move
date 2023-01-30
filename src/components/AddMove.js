@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { db } from '../utils/firebase'
 import { ref, set } from 'firebase/database'
+import { auth } from '../utils/firebase'
+import { UserContext } from './UserContext'
 
 function AddMove() {
   const [move, setMove] = useState('')
-  //const movesCollection = db.collection("moves")
+  const { user } = useContext(UserContext)
 
   const addMove = (e) => {
     set(ref(db, 'moves/' + move), {
@@ -15,7 +17,9 @@ function AddMove() {
 
   return (
     <div>
+      <div> {user && <h2>Hello, {user.email}</h2>}</div>
       <h1>My List</h1>
+
       <div>
         <input
           type="text"

@@ -14,7 +14,7 @@ function PrivateRoute({ component: Component, ...rest }) {
       }
     })
     return () => unsubscribe()
-  }, [navigate])
+  }, [])
 
   return auth.currentUser ? <Component {...rest} /> : navigate('/login')
 }

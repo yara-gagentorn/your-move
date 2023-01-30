@@ -12,10 +12,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route
+        {/* <Route
           path="/dashboard"
-          element={<PrivateRoute element={<AddMove />} />}
-        ></Route>
+          element={<PrivateRoute element={<TestComp />} />}
+        ></Route> */}
         <Route exact path="/" element={<AddMove />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<Signup />} />
